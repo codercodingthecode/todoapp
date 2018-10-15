@@ -7,9 +7,8 @@ import {
 } from '../Redux/Actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Route, Link, NavLink, Switch } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
-
 
 class Todo extends Component {
   constructor(props) {
@@ -29,9 +28,8 @@ class Todo extends Component {
     this.props.actions.getTodos();
   }
 
-
   handleDelete = id => {
-    this.props.actions.deleteTodos(id)
+    this.props.actions.deleteTodos(id);
   }
 
   handleAdd = todoTask => {
@@ -47,7 +45,7 @@ class Todo extends Component {
   }
 
   handleTaskCompleted = id => {
-    this.props.actions.putTodos(id)
+    this.props.actions.putTodos(id);
   }
 
   render() {
@@ -80,7 +78,6 @@ export const TodoForm = props => {
 }
 
 export const TodoList = props => {
-
   return (
     <div>
       {props.Todos.map((item, key) => {
@@ -117,7 +114,6 @@ export const TodoList = props => {
     </div>
   )
 }
-
 
 const mapDispatchToProps = dispatch => {
   return {

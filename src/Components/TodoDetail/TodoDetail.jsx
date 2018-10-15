@@ -2,8 +2,6 @@
 
 import React, { Component } from 'react';
 import {
-  getTodos,
-  postTodos,
   deleteTodos,
   putTodos,
   patchtTodos,
@@ -29,10 +27,9 @@ class TodoDetail extends Component {
       id: id,
       title: title,
       description: description,
-      completed, completed,
+      completed: completed,
     })
   }
-
 
   handleInputChange = ({ event, field }) => {
     this.setState({
@@ -55,13 +52,10 @@ class TodoDetail extends Component {
   render() {
     return (
       <div>
-
         <h1>TODO DETAILS</h1>
         <button onClick={() => this.props.history.goBack()}> {`<`} back</button>
-
         <form onSubmit={(e) => { e.preventDefaul() }} >
           <div>
-
             <label htmlFor="title">Todo</label>
             <input
               type="text"
@@ -90,7 +84,6 @@ class TodoDetail extends Component {
             value={this.state.description}
             onChange={(event) => this.handleInputChange({ event, field: 'description' })}
           />
-
         </form>
         <div>
           <button onClick={this.handleUpdate}>save</button>
@@ -98,14 +91,10 @@ class TodoDetail extends Component {
           <button onClick={() => {
             this.props.actions.deleteTodos(this.state.id)
             this.props.history.goBack()
-          }
-
-          } >delete</button>
+          }}
+          >delete</button>
         </div>
         <hr />
-
-
-
       </div>
     )
   }
@@ -120,6 +109,7 @@ const mapDispatchToProps = dispatch => {
     }, dispatch)
   }
 }
+
 const mapStateToProps = state => {
   return {
     Todos: state.Todos

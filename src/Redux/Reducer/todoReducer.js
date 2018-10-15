@@ -12,7 +12,7 @@ export const TodosReducer = (state = initialState, action) => {
       return Object.assign([], state, action.payload)
 
     case DELETE_TODOS:
-      return action.payload
+      return action.payload // debbug
 
     case PUT_TODOS:
       return Object.assign([], state, action.payload)
